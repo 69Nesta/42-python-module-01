@@ -60,6 +60,7 @@ class Vegetable(Plant):
 
 
 def ft_plant_types() -> None:
+    print("=== Garden Plant Types ===\n")
     flower1 = Flower("Rose", 25, 30, "red")
     flower1.show()
     flower1.bloom()
@@ -67,7 +68,7 @@ def ft_plant_types() -> None:
     flower2 = Flower("Lily", 35, 15, "white")
     flower2.show()
     flower2.bloom()
-    print("\n\n")
+    print("\n----------------------------------------\n")
     tree1 = Tree("Oak", 500, 1825, 50)
     tree1.show()
     tree1.produce_shade()
@@ -75,7 +76,7 @@ def ft_plant_types() -> None:
     tree2 = Tree("Pine", 300, 1200, 40)
     tree2.show()
     tree2.produce_shade()
-    print("\n\n")
+    print("\n----------------------------------------\n")
     vegetable1 = Vegetable("Tomato", 80, 90, "summer", 17)
     vegetable1.show()
     vegetable1.nutrition()
