@@ -17,12 +17,13 @@ class Factory:
     def __init__(self):
         self.plant_created = 0
 
-    def create_plant(self, name, age, height):
+    def create_plant(self, name, age, height) -> Plant:
         plant = Plant(name, 1, 1)
         plant.grow(height - 1)
         plant.age_by(age - 1)
         print(f"Created: {plant.name} ({plant.height}cm, {plant.age} days)")
         self.plant_created += 1
+        return (plant)
 
     def get_total_created(self) -> int:
         return self.plant_created
