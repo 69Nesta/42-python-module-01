@@ -1,3 +1,5 @@
+#! python3
+
 class Plant:
     def __init__(self, name: str, height: int, age: int):
         self.name = name
@@ -14,7 +16,6 @@ def main() -> None:
     Plant("Cactus", 15, 120).show()
 
 
-if __name__ == "__main__":
-    print("===  Garden Plant Registry  ===")
-    main()
-    print("=== End of Program ===")
+print("===  Garden Plant Registry  ===")
+main()
+print("=== End of Program ===")

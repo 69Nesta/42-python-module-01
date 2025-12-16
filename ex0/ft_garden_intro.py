@@ -1,3 +1,5 @@
+#! python3
+
 def main():
     name = "Nicola"
     height = 42
