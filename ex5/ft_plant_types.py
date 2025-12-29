@@ -1,65 +1,83 @@
 #! python3
 
 class Plant:
+    """Base Plant class."""
     def __init__(self, name: str, start_age: int, start_height: int) -> None:
+        """Initialize Plant with name, starting age, and starting height."""
         self.name = name
         self.age = start_age
         self.height = start_height
 
     def grow(self, amount=1) -> None:
+        """Increase the height of the plant by a given amount."""
         self.height += amount
 
     def age_by(self, day_count=1) -> None:
+        """Increase the age of the plant by a given number of days."""
         self.age += day_count
 
 
 class Flower(Plant):
+    """Flower class inheriting from Plant."""
     def __init__(self, name: str, height: int, age: int, color_attribute: str):
+        """Initialize Flower with name, height, age, and color attribute."""
         super().__init__(name, height, age)
         self.color_attribute = color_attribute
 
     def bloom(self) -> None:
+        """Simulate the blooming of the flower."""
         print(f"{self.name} is blooming beautifully!")
 
     def show(self) -> None:
+        """Display information about the flower."""
         print(f"{self.name} (Flower): {self.height}cm, {self.age} days," +
               f" {self.color_attribute} color")
 
 
 class Tree(Plant):
+    """Tree class inheriting from Plant."""
     def __init__(self, name: str, height: int, age: int, trunk_diameter: int):
+        """Initialize Tree with name, height, age, and trunk diameter."""
         super().__init__(name, height, age)
         self.trunk_diameter = trunk_diameter
 
     def produce_shade(self) -> None:
+        """Simulate the production of shade by the tree."""
         print(f"{self.name} provides " +
               f"{int(self.trunk_diameter/100 * 8.6 * self.height/100)} " +
               "square meters of shade")
 
     def show(self) -> None:
+        """Display information about the tree."""
         print(f"{self.name} (Tree): {self.height}cm, {self.age} days," +
               f" {self.trunk_diameter}cm diameter")
 
 
 class Vegetable(Plant):
+    """Vegetable class inheriting from Plant."""
     def __init__(self, name: str, height: int, age: int, harvest_season: str,
                  nutitional_value: int):
+        """Initialize Vegetable with name, height, age, harvest season, and
+         nutritional value."""
         super().__init__(name, height, age)
         self.harvest_season = harvest_season
         self.nutitional_value = nutitional_value
 
     def nutrition(self) -> None:
+        """Display the nutritional value of the vegetable."""
         word = "poor"
         if (self.nutitional_value > 10):
             word = "rich"
         print(f"{self.name} is {word} in vitamin C")
 
     def show(self) -> None:
+        """Display information about the vegetable."""
         print(f"{self.name} (Vegetable): {self.height}cm, {self.age} days," +
               f" {self.harvest_season} summer")
 
 
 def ft_plant_types() -> None:
+    """Demonstrate the Plant types: Flower, Tree, and Vegetable."""
     print("=== Garden Plant Types ===\n")
     flower1 = Flower("Rose", 25, 30, "red")
     flower1.show()
@@ -86,4 +104,6 @@ def ft_plant_types() -> None:
     vegetable2.nutrition()
 
 
-ft_plant_types()
+if __name__ == "__main__":
+    ft_plant_types()
+    print("=== End of Program ===")

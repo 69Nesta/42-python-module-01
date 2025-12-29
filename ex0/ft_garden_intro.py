@@ -1,6 +1,8 @@
 #! python3
 
 def main():
+    """Introduce a plant in the garden."""
+    print("=== Welcome to My Garden ===")
     name = "Nicola"
     height = 42
     age = 30
@@ -10,6 +12,5 @@ def main():
 
 
 if __name__ == '__main__':
-    print("=== Welcome to My Garden ===")
     main()
     print("=== End of Program ===")
