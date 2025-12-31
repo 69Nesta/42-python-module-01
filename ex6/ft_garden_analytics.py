@@ -1,26 +1,5 @@
 #! python3
 
-class GardenManager:
-    def __init__(self):
-        #
-        print("Hello")
-
-    def create_garden_network():
-        print("")
-
-
-class Garden:
-    def __init__(self, name: str):
-        self.name = name
-        self.plants = []
-
-    # def add(self, ):
-        # print("Adding plant")
-
-    # def garden_stats()
-    # def get_score()
-
-
 class Plant:
     def __init__(self, name: str, height: int) -> None:
         self.type = 'regular'
@@ -32,6 +11,9 @@ class Plant:
         if (name):
             self.name = name.title()
 
+    def get_name(self) -> str:
+        return self.name
+
     def set_height(self, height: int) -> None:
         self.height = height
 
@@ -41,7 +23,7 @@ class Plant:
     def get_plant(self) -> str:
         return f'{self.name}: {self.get_height()}cm'
 
-    def grow(self, grow: int) -> None:
+    def grow(self, grow=1) -> None:
         self.grow += grow
         print(f'{self.name} grew {grow}cm')
 
@@ -56,7 +38,7 @@ class FloweringPlant(Plant):
     def __init__(self, name: str, height: int, color: str) -> None:
         super().__init__(name, height)
         self.type = 'flowering'
-        self.blooming = False
+        self.blooming = True
 
     def set_color(self, color: str) -> None:
         if (color):
@@ -81,6 +63,40 @@ class PrizeFlower(FloweringPlant):
 
     def get_plant(self):
         return super().get_plant() + f', Prize Points: {self.prize}'
+
+
+class GardenManager:
+    def __init__(self):
+        #
+        print("Hello")
+
+    def create_garden_network():
+        print("")
+
+
+class Garden:
+    def __init__(self, name: str) -> None:
+        self.set_name(name)
+        self.plants: list[Plant | FloweringPlant | PrizeFlower] = []
+
+    def set_name(self, name: str) -> None:
+        if (name):
+            self.name = name.title()
+
+    def get_name(self) -> str:
+        return self.name
+
+    def add(self, plant: Plant | FloweringPlant | PrizeFlower) -> None:
+        print(f'Added {plant.get_name()} to {self.get_name()}\'s garden')
+        self.plants.append(plant)
+
+    def grow(self, grow=1) -> None:
+        print(f'{self.get_name()} is helping all plants grow...')
+        for plant in self.plants:
+            plant.grow(grow)
+
+    # def garden_stats()
+    # def get_score()
 
 
 if __name__ == '__main__':
