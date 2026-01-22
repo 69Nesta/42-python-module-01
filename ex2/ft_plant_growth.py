@@ -2,7 +2,13 @@
 
 class Plant:
     """Plant class to simulate growth over time."""
-    def __init__(self, name: str, height: int, age: int, grow_speed: int):
+    def __init__(
+                self,
+                name: str,
+                height: int,
+                age: int,
+                grow_speed: int
+            ) -> None:
         """Initialize Plant with name, height, age, and growth speed."""
         self.name = name
         self.height = height

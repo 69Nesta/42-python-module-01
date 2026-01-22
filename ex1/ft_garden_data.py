@@ -2,7 +2,7 @@
 
 class Plant:
     """Simple Plant class."""
-    def __init__(self, name: str, height: int, age: int):
+    def __init__(self, name: str, height: int, age: int) -> None:
         """Initialize the plant with name, height, and age."""
         self.name = name
         self.height = height
@@ -15,12 +15,12 @@ class Plant:
 
 def main() -> None:
     """Create and display plants in the garden."""
-    print("===  Garden Plant Registry  ===")
     Plant("Rose", 25, 30).show()
     Plant("Sunflower", 80, 40).show()
     Plant("Cactus", 15, 120).show()
 
 
 if __name__ == "__main__":
+    print("===  Garden Plant Registry  ===")
     main()
     print("=== End of Program ===")

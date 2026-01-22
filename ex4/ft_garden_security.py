@@ -14,6 +14,7 @@ class SecurePlant:
         """Set the age of the plant with validation."""
         if (age < 0):
             print(f"Invalid operation attempted: age {age} [REJECTED]")
+            print('Security: negative age rejected')
         else:
             print(f"Age updated: {age} [OK]")
             self.__age = age
@@ -22,6 +23,7 @@ class SecurePlant:
         """Set the height of the plant with validation."""
         if (height < 0):
             print(f"Invalid operation attempted: height {height}cm [REJECTED]")
+            print('Security: negative height rejected')
         else:
             print(f"Height updated: {height}cm [OK]")
             self.__height = height
@@ -38,8 +40,10 @@ class SecurePlant:
 def ft_garden_security() -> None:
     """Demonstrate the SecurePlant class with security checks."""
     print("=== Garden Security System ===")
-    plant = SecurePlant("Rose", -25, -30)
+    plant = SecurePlant("Rose", 25, 30)
+    print('')
     plant.set_height(-5)
+    print('')
     print(f"Current plant: {plant.name} ({plant.get_height()}cm" +
           f", {plant.get_age()} days)")
 

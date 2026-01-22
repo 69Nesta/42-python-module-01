@@ -249,7 +249,7 @@ class GardenManager:
                   f'{sum(len(g.get_plants()) for g in gardens.values())}')
             print(f'Total gardens managed: {len(gardens)}')
 
-    def __init__(self):
+    def __init__(self) -> None:
         '''Initialize a GardenManager with an empty network of gardens.'''
         self._network: dict[str, Garden] = {}
 
@@ -259,7 +259,7 @@ class GardenManager:
         print('Creating garden network...\n')
         return cls()
 
-    def create_garden(self, name) -> Garden:
+    def create_garden(self, name) -> Garden | None:
         '''Create a new garden in the network.'''
         id = Utility.name_to_id(name)
         if (self._network.get(id)):
@@ -267,7 +267,7 @@ class GardenManager:
         self._network[id] = Garden(name)
         return self._network[id]
 
-    def get_garden(self, name) -> Garden:
+    def get_garden(self, name) -> Garden | None:
         '''Retrieve a garden from the network by name.'''
         id = Utility.name_to_id(name)
         if (not self._network.get(id)):
@@ -286,7 +286,7 @@ class GardenManager:
         del self._network[id]
 
 
-def ft_garden_analytics():
+def ft_garden_analytics(): 
     '''Demo function for the Garden Management System.'''
     print('=== Garden Management System Demo ===\n')
     garden_manager = GardenManager.create_garden_network()
