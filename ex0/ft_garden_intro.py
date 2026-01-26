@@ -2,7 +2,7 @@
 
 def main() -> None:
     """Introduce a plant in the garden."""
-    name = "Nicola"
+    name = "Rose"
     height = 42
     age = 30
     print(f"Plant : {name}\n" +

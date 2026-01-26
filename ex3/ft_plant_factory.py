@@ -24,6 +24,12 @@ class Factory:
         self.plant_created: int = 0
         self.plants: list[Plant] = []
 
+    def creates_plants(self, plants: list[tuple[str, int, int]]) -> None:
+        """Create multiple Plant instances from a list of (name, age, height)
+         tuples."""
+        for (name, age, height) in plants:
+            self.create_plant(name, age, height)
+
     def create_plant(self, name, age, height) -> Plant:
         """Create a Plant instance with given name, age, and height."""
         plant = Plant(name, 1, 1)
@@ -43,16 +49,19 @@ class Factory:
             print(f"Created: {plant.name} ({plant.height}cm, {plant.age})")
 
 
-def plant_factory():
+def plant_factory() -> None:
     """Demonstrate the Factory class by creating various Plant instances."""
     factory = Factory()
+    plants_raw: list[tuple[str, int, int]] = [
+        ("Rose", 30, 25),
+        ("Oak", 365, 200),
+        ("Cactus", 90, 5),
+        ("Sunflower", 80, 80),
+        ("Fern", 120, 15),
+    ]
 
     print("=== Plant Factory Output ===")
-    factory.create_plant("Rose", 30, 25)
-    factory.create_plant("Oak", 365, 200)
-    factory.create_plant("Cactus", 90, 5)
-    factory.create_plant("Sunflower", 80, 80)
-    factory.create_plant("Fern", 120, 15)
+    factory.creates_plants(plants_raw)
     factory.print_plants()
     print(f"\nTotal plants created: {factory.get_total_created()}")
 
