@@ -286,7 +286,7 @@ class GardenManager:
         del self._network[id]
 
 
-def ft_garden_analytics(): 
+def ft_garden_analytics():
     '''Demo function for the Garden Management System.'''
     print('=== Garden Management System Demo ===\n')
     garden_manager = GardenManager.create_garden_network()
