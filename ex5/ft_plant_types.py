@@ -16,6 +16,9 @@ class Plant:
         """Increase the age of the plant by a given number of days."""
         self.age += day_count
 
+    def show(self) -> str:
+        return f'{self.name}'
+
 
 class Flower(Plant):
     """Flower class inheriting from Plant."""
@@ -28,10 +31,10 @@ class Flower(Plant):
         """Simulate the blooming of the flower."""
         print(f"{self.name} is blooming beautifully!")
 
-    def show(self) -> None:
+    def show(self) -> str:
         """Display information about the flower."""
-        print(f"{self.name} (Flower): {self.height}cm, {self.age} days," +
-              f" {self.color_attribute} color")
+        return f"{super().show()} (Flower): {self.height}cm, " +\
+               f"{self.age} days, {self.color_attribute} color"
 
 
 class Tree(Plant):
@@ -47,10 +50,10 @@ class Tree(Plant):
               f"{int(self.trunk_diameter/100 * 8.6 * self.height/100)} " +
               "square meters of shade")
 
-    def show(self) -> None:
+    def show(self) -> str:
         """Display information about the tree."""
-        print(f"{self.name} (Tree): {self.height}cm, {self.age} days," +
-              f" {self.trunk_diameter}cm diameter")
+        return f"{super().show()} (Tree): {self.height}cm, {self.age} days," +\
+               f" {self.trunk_diameter}cm diameter"
 
 
 class Vegetable(Plant):
@@ -70,37 +73,37 @@ class Vegetable(Plant):
             word = "rich"
         print(f"{self.name} is {word} in vitamin C")
 
-    def show(self) -> None:
+    def show(self) -> str:
         """Display information about the vegetable."""
-        print(f"{self.name} (Vegetable): {self.height}cm, {self.age} days," +
-              f" {self.harvest_season} summer")
+        return f"{super().show()} (Vegetable): {self.height}cm, " +\
+               f"{self.age} days, {self.harvest_season} summer"
 
 
 def ft_plant_types() -> None:
     """Demonstrate the Plant types: Flower, Tree, and Vegetable."""
     print("=== Garden Plant Types ===\n")
     flower1 = Flower("Rose", 25, 30, "red")
-    flower1.show()
+    print(flower1.show())
     flower1.bloom()
     print("")
     flower2 = Flower("Lily", 35, 15, "white")
-    flower2.show()
+    print(flower2.show())
     flower2.bloom()
     print("\n----------------------------------------\n")
     tree1 = Tree("Oak", 500, 1825, 50)
-    tree1.show()
+    print(tree1.show())
     tree1.produce_shade()
     print("")
     tree2 = Tree("Pine", 300, 1200, 40)
-    tree2.show()
+    print(tree2.show())
     tree2.produce_shade()
     print("\n----------------------------------------\n")
     vegetable1 = Vegetable("Tomato", 80, 90, "summer", 17)
-    vegetable1.show()
+    print(vegetable1.show())
     vegetable1.nutrition()
     print("")
     vegetable2 = Vegetable("Carrot", 30, 120, "autumn", 6)
-    vegetable2.show()
+    print(vegetable2.show())
     vegetable2.nutrition()
 
 
